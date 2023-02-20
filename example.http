@@ -1,0 +1,70 @@
+@local = http://localhost:3003
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NzY3NDM3NTl9.U6X3i1EiPiL91xfEKTfwm1R5S0tHLNcfeU36L-BeSM8
+GET {{local}}/test
+
+###
+
+POST {{local}}/users/
+Content-Type: application/json
+
+{
+    "name":"aviasdasdv",
+    "email":"avivn043@gmail.com",
+   
+    "password":"154dsad2354233454534345",
+    "biz":true
+}
+
+###
+GET {{local}}/users/me
+x-auth-token: {{token}}
+
+###
+POST {{local}}/auth/
+Content-Type: application/json
+
+{
+    "email":"avivn043@gmail.com",
+    "password":"154dsad2354233454534345"
+}
+###
+POST {{local}}/cards/
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+    "bizName":"sasdadasdadsasdssdsasd",
+    "bizAddress":"dasd2321dasdasd321312312sadaasdasdsd",
+    "bizDescription":"dskaasdsadasadasdasdsdasdasjdhaskd",
+    "bizPhone":"0558864886",
+    "bizImage":"https://cdn.pixabay.com/photo/2017/06/16/21/59/art-2410485_960_720.png"
+    
+
+}
+
+###
+GET {{local}}/cards/63e8a9eacf1b31637c70c5b2
+x-auth-token: {{token}}
+
+###
+PUT {{local}}/cards/63e8a9eacf1b31637c70c5b2
+x-auth-token: {{token}}
+Content-Type: application/json
+
+{
+    "bizName":"Avisaaxzczxcsdsad",
+    "bizAddress":"dasdassadasdd",
+    "bizDescription":"dskasadasdasdjdhaskd",
+    "bizPhone":"0558864886",
+    "bizImage":"https://cdn.pixabay.com/photo/2017/06/16/21/59/art-2410485_960_720.png"
+    
+
+}
+
+###
+DELETE {{local}}/cards/63e8a9eacf1b31637c70c5b2
+x-auth-token: {{token}}
+###
+
+GET {{local}}/cards/
+x-auth-token: {{token}}
